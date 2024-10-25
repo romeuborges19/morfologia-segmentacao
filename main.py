@@ -1,6 +1,6 @@
 from PIL import Image
-import matplotlib.pyplot as plt
 
+from morfologia import Abertura, Fechamento
 from segmentacao import SegmentacaoLimiar
 
 
@@ -17,6 +17,11 @@ def main():
     image = image.convert("L")
 
     _executar_algoritmo(SegmentacaoLimiar, image, "resultado-segmentacao")
+
+    image = Image.open("image/teste.png")
+    image = image.convert("L")
+    _executar_algoritmo(Fechamento, image, "resultado-fechamento")
+    _executar_algoritmo(Abertura, image, "resultado-abertura")
 
 
 if __name__ == "__main__":
